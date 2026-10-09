@@ -1,6 +1,6 @@
 [project]
 name = "checksum-kit"
-version = "0.1.1"
+version = "0.1.2"
 description = "CRC32 and Adler-32 over streams without loading the whole file."
 requires-python = ">=3.10"
 dependencies = []
