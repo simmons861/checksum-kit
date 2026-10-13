@@ -23,3 +23,10 @@ The standard `zlib.crc32(data)` requires the entire input as a single `bytes` ob
 - Empty input yields `0` for CRC-32 and `1` for Adler-32 — these are the canonical initial values, not bugs.
 - `chunk_size` must be a positive integer; anything else raises `ValueError`.
 - The source is never seeked; it must be a forward-readable binary stream.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
